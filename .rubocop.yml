@@ -1,0 +1,9 @@
+inherit_gem:
+  relaxed-rubocop: .rubocop.yml
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes

@@ -1,0 +1,33 @@
+- declared_events = @declared_events
+
+.hero
+  img.logo src="logo.png"
+  h1 Spotkanie z Charakterem – #{I18n.l(Time.now, format: :custom)}
+  p Wypełnij poniższy formularz żeby Twoje miasto było dołączone do grafiki oraz opisu wydarzenia.
+
+  form.form action="/host" method="post"
+    == csrf_tag("/host")
+    input type="text" list="cities" name="city" placeholder="Miasto" autofocus=true
+    datalist id="cities"
+      option Wrocław
+      option Warszaw
+      option Kraków
+      option Poznań
+      option Białystok
+      option Katowice
+      option Lublin
+      option Sopot
+    input type="text" name="place" placeholder="Miejsce"
+    input type="text" name="address" placeholder="Adres"
+    input type="time" name="time" placeholder="Godzina"
+    input type="submit"
+
+  p
+    em Jeżeli się pomyliłeś i chcesz zmienić czas i/lub miejsce po prostu dodaj nowy wpis dla danego miasta.
+
+  - if declared_events.any?
+    .declared-cities
+      h1 Zadeklarowane miasta
+      ul
+        - declared_events.each do |event|
+          li #{event.city} – #{event.place} - #{event.address} - #{event.time.strftime("%H:%M")}

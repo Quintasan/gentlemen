@@ -1,0 +1,27 @@
+html, body {
+  height: 100%;
+  background: #fffff8;
+}
+
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.declared-cities {
+  align-self: flex-start;
+}
+
+.logo {
+  max-width: 25%;
+}

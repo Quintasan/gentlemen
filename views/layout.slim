@@ -1,0 +1,15 @@
+doctype html
+html lang="pl"
+  head
+    meta charset="utf-8"
+    title Gentlemen
+    == assets(:css)
+  body
+    == assets(:js)
+    .container
+      #flash
+        - if flash.keys.any?
+          - flash.each do |key, value|
+            div class=key
+              | #{value}
+      == yield
