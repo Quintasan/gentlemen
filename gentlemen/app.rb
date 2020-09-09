@@ -77,6 +77,14 @@ module Gentlemen
         view "homepage"
       end
 
+      r.get "tos" do
+        view("tos")
+      end
+
+      r.get "privacy" do
+        view("privacy")
+      end
+
       r.is "register" do
         r.post do
           access_token = r.params.dig("authResponse", "accessToken")

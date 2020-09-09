@@ -25,3 +25,7 @@ html, body {
 .logo {
   max-width: 25%;
 }
+
+.tos, .privacy {
+  align-self: flex-start;
+}
