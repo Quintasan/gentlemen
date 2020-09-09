@@ -42,7 +42,7 @@ class Event < Sequel::Model
   end
 end
 
-ALLOWED_EMAILS = %w[michal.zajac@gmail.com].freeze
+ALLOWED_EMAILS = ENV.delete("GENTLEMEN_ALLOWED_EMAILS").split(",").freeze
 
 module Gentlemen
   class App < Roda
