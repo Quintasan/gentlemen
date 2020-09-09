@@ -104,6 +104,18 @@ module Gentlemen
         end
       end
 
+      r.get "description" do
+        unless r.session["logged_in"]
+          flash["error"] = "Musisz się zalogować"
+          r.redirect root_path
+        end
+
+        require_relative "./select_latest_entry_for_every_city"
+        @events = Gentlemen::SelectLatestEntryForEveryCity.call
+
+        view("event_description")
+      end
+
       r.is "host" do
         r.get do
           unless r.session["logged_in"]
