@@ -4,18 +4,8 @@ require "rubygems"
 require "bundler/setup"
 Bundler.require(:default, :development)
 
-DB = Sequel.sqlite("events.db")
+DB = Sequel.sqlite(File.join("db", "events.db"))
 DB.extension :date_arithmetic
-
-DB.create_table?(:events) do
-  primary_key :id
-  String :city
-  String :place
-  String :address
-  Time :time
-  DateTime :created_at
-  DateTime :updated_at
-end
 
 I18n.load_path << Dir[File.expand_path("locales") + "/*.yml"]
 I18n.default_locale = :pl
