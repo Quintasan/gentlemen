@@ -6,7 +6,7 @@ require "bundler/setup"
 require "sequel"
 require "pry"
 
-DB = Sequel.sqlite("events.db")
+DB = Sequel.sqlite(File.join("db", "events.db"))
 class Event < Sequel::Model; end
 
 pry
