@@ -122,8 +122,10 @@ module Gentlemen
         r.post do
           check_csrf!
 
-          columns = Event.columns[0...-2].map(&:to_s)
-          event_params = r.params.slice(*columns)
+          timestamps = %w(created_at updated_at)
+          columns = Event.columns.map(&:to_s)
+          desired_params = columns - timestamps
+          event_params = r.params.slice(*desired_params)
           event = Event.new(event_params)
 
           if event.valid?
