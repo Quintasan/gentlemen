@@ -20,6 +20,7 @@
     input type="text" name="place" placeholder="Miejsce"
     input type="text" name="address" placeholder="Adres"
     input type="time" name="time" placeholder="Godzina"
+    input type="text" name="additional_notes" placeholder="Dodatkowe informacje"
     input type="submit"
 
   p
@@ -30,4 +31,4 @@
       h1 Zadeklarowane miasta
       ul
         - declared_events.each do |event|
-          li #{event.city} – #{event.place} - #{event.address} - #{event.time.strftime("%H:%M")}
+          li #{event.city} – #{event.place} - #{event.address} - #{event.time.strftime("%H:%M")} - #{event.additional_notes}
